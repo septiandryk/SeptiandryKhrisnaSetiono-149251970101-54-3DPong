@@ -23,6 +23,15 @@ public class ScoreManager : MonoBehaviour
 
     public GameObject winnerText;
     public GameObject skor;
+    public GameObject player1WinText;
+    public GameObject player2WinText;
+    public GameObject player3WinText;
+    public GameObject player4WinText;
+
+    public bool player1Win;
+    public bool player2Win;
+    public bool player3Win;
+    public bool player4Win;
 
     private int playerCounter;
 
@@ -30,10 +39,12 @@ public class ScoreManager : MonoBehaviour
     {
         score1 += increment;
 
+
         if (score1 >= maxScore)
         {
             player1.GetComponent<PlayerController>().PlayerDead();
             playerCounter += 1;
+            player1Win = false;
         }
     }
 
@@ -46,6 +57,7 @@ public class ScoreManager : MonoBehaviour
             player2.GetComponent<PlayerController>().PlayerDead();
             tembok2.SetActive(true);
             playerCounter += 1;
+            player2Win = false;
         }
     }
 
@@ -58,7 +70,7 @@ public class ScoreManager : MonoBehaviour
             player3.GetComponent<PlayerController>().PlayerDead();
             tembok3.SetActive(true);
             playerCounter += 1;
-            Debug.Log("player nambah 1");
+            player3Win = false;
         }
     }
 
@@ -71,6 +83,7 @@ public class ScoreManager : MonoBehaviour
             player4.GetComponent<PlayerController>().PlayerDead();
             tembok4.SetActive(true);
             playerCounter += 1;
+            player4Win = false;
         }
     }
 
@@ -81,7 +94,36 @@ public class ScoreManager : MonoBehaviour
             Time.timeScale = 0;
             winnerText.SetActive(true);
             skor.SetActive(false);
+
+            if (player1Win == true && player2Win == false && player3Win == false && player4Win == false)
+            {
+                player1WinText.SetActive(true);
+            }
+
+            if (player2Win == true && player1Win == false && player3Win == false && player4Win == false)
+            {
+                player2WinText.SetActive(true);
+            }
+
+            if (player3Win == true && player1Win == false && player2Win == false && player4Win == false)
+            {
+                player3WinText.SetActive(true);
+            }
+
+            if (player4Win == true && player1Win == false && player2Win == false && player3Win == false)
+            {
+                player4WinText.SetActive(true);
+            }
+
         }
+    }
+
+    private void Start()
+    {
+        player1Win = true;
+        player2Win = true;
+        player3Win = true;
+        player4Win = true;
     }
 
     private void Update()
