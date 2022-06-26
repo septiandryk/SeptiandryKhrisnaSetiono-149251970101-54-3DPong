@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1154217087771728759, guid: 479ffa63af9cd5b429a74ca1a1dc306f, type: 3}
       propertyPath: speed.x
-      value: -6
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 1154217087771728759, guid: 479ffa63af9cd5b429a74ca1a1dc306f, type: 3}
       propertyPath: speed.z
